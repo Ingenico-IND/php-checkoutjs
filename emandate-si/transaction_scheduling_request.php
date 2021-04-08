@@ -93,7 +93,7 @@ if(isset($_POST))
             <td>'.$schedulingData["merchantTransactionIdentifier"].'</td>
           </tr>
           <tr>
-            <td>Tpsl Transaction Id </td>
+            <td>Ingenico Merchant Transaction ID </td>
             <td>'.$schedulingData["paymentMethod"]["paymentTransaction"]["identifier"].'</td>
           </tr>
           <tr>

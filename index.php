@@ -106,11 +106,11 @@
                             <td><?php echo $response_msg[3]; ?></td>
                           </tr>
                           <tr>
-                            <td>Tpsl Bank Cd</td>
+                            <td>Ingenico Merchant Bank Cd</td>
                             <td><?php echo $response_msg[4]; ?></td>
                           </tr>
                           <tr>
-                            <td>Tpsl Txn Id</td>
+                            <td>Ingenico Merchant Transaction ID</td>
                             <td><?php echo $response_msg[5]; ?></td>
                           </tr>
                           <tr>
@@ -122,7 +122,7 @@
                             <td><?php echo $response_msg[7]; ?></td>
                           </tr>
                           <tr>
-                            <td>Tpsl Txn Time</td>
+                            <td>Ingenico Merchant Transaction Time</td>
                             <td><?php echo $response_msg[8]; ?></td>
                           </tr>
                           <tr>

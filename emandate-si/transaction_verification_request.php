@@ -91,7 +91,7 @@ if(isset($_POST))
             <td>'.$verifyData["merchantTransactionIdentifier"].'</td>
           </tr>
           <tr>
-            <td>Tpsl Transaction ID</td>
+            <td>Ingenico Merchant Transaction ID</td>
             <td>'.$verifyData["paymentMethod"]["paymentTransaction"]["identifier"].'</td>
           </tr>
           <tr>

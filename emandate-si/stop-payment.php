@@ -29,7 +29,7 @@
                             <th width="60%">Value</th>
                         </tr>
                         <tr>
-                            <td><label>TPSL Transaction Id (From Transaction Scheduling) <span style="color:red;">*</span></label></td>
+                            <td><label>Ingenico Merchant Transaction ID (From Transaction Scheduling) <span style="color:red;">*</span></label></td>
                             <td><input class="form-control" type="text" name="tpslTransactionID" value=""/></td>
                         </tr>
                         <tr>
