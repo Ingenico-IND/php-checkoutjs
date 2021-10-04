@@ -15,7 +15,7 @@
         $host = 'http';
     }
 
-    $admin_data = file_get_contents("./ingenico_AdminData.json");
+    $admin_data = file_get_contents("./worldline_AdminData.json");
     $mer_array = json_decode($admin_data, true);
 
     if($_POST)
@@ -106,11 +106,11 @@
                             <td><?php echo $response_msg[3]; ?></td>
                           </tr>
                           <tr>
-                            <td>Ingenico Merchant Bank Cd</td>
+                            <td>worldline Merchant Bank Cd</td>
                             <td><?php echo $response_msg[4]; ?></td>
                           </tr>
                           <tr>
-                            <td>Ingenico Merchant Transaction ID</td>
+                            <td>worldline Merchant Transaction ID</td>
                             <td><?php echo $response_msg[5]; ?></td>
                           </tr>
                           <tr>
@@ -122,7 +122,7 @@
                             <td><?php echo $response_msg[7]; ?></td>
                           </tr>
                           <tr>
-                            <td>Ingenico Merchant Transaction Time</td>
+                            <td>worldline Merchant Transaction Time</td>
                             <td><?php echo $response_msg[8]; ?></td>
                           </tr>
                           <tr>
@@ -213,14 +213,14 @@
         <table class="table" border = "1" cellpadding="2" cellspacing="0" style="width: 50%;text-align: center;">
           <tr>
             <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"].$_SERVER['SCRIPT_NAME']; ?>'>BACK TO PAYMENT PAGE</a><br></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/offline_verification.php"; ?>' target="_blank">GO TO OFFLINE-VERIFICATION</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/reconciliation.php"; ?>' target="_blank">GO TO RECONCILIATION</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/refund.php"; ?>' target="_blank">GO TO REFUND</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/emandate-si/mandate-verification.php"; ?>' target="_blank">GO TO MANDATE VERIFICATION</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/emandate-si/transaction-scheduling.php"; ?>' target="_blank">GO TO TRANSACTION SCHEDULING</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/emandate-si/transaction-verification.php"; ?>' target="_blank">GO TO TRANSACTION VERIFICATION</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/emandate-si/mandate-deactivation.php"; ?>' target="_blank">GO TO MANDATE DEACTIVATION</a></td>
-            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/checkout_js/emandate-si/stop-payment.php"; ?>' target="_blank">GO TO STOP PAYMENT</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/offline_verification.php"; ?>' target="_blank">GO TO OFFLINE-VERIFICATION</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/reconciliation.php"; ?>' target="_blank">GO TO RECONCILIATION</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/refund.php"; ?>' target="_blank">GO TO REFUND</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/emandate-si/mandate-verification.php"; ?>' target="_blank">GO TO MANDATE VERIFICATION</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/emandate-si/transaction-scheduling.php"; ?>' target="_blank">GO TO TRANSACTION SCHEDULING</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/emandate-si/transaction-verification.php"; ?>' target="_blank">GO TO TRANSACTION VERIFICATION</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/emandate-si/mandate-deactivation.php"; ?>' target="_blank">GO TO MANDATE DEACTIVATION</a></td>
+            <td><a href='<?php echo $host."://".$_SERVER["HTTP_HOST"]."/php-checkoutjs/emandate-si/stop-payment.php"; ?>' target="_blank">GO TO STOP PAYMENT</a></td>
           </tr>
         </table><br>
 
@@ -234,9 +234,9 @@
     <title>Payment Checkout</title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1" / />
     <!-- <script src="https://www.paynimo.com/paynimocheckout/client/lib/jquery.min.js" type="text/javascript"></script> -->
-    <link rel="stylesheet" href="<?php echo $host."://".$_SERVER["HTTP_HOST"].'/checkout_js/assets/css/bootstrap.min.css';?>">
+    <link rel="stylesheet" href="<?php echo $host."://".$_SERVER["HTTP_HOST"].'/php-checkoutjs/assets/css/bootstrap.min.css';?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
-    <script src="<?php echo $host."://".$_SERVER["HTTP_HOST"].'/checkout_js/assets/js/bootstrap.min.js';?>"></script>
+    <script src="<?php echo $host."://".$_SERVER["HTTP_HOST"].'/php-checkoutjs/assets/js/bootstrap.min.js';?>"></script>
 
 <?php if($mer_array['enableEmandate'] == 1 && $mer_array['enableSIDetailsAtMerchantEnd'] == 1){}elseif($mer_array['enableEmandate'] == 1 && $mer_array['enableSIDetailsAtMerchantEnd'] != 1){ ?>
     <style type="text/css">
@@ -426,7 +426,7 @@
                         </tr>
                     </table>
                 </form>
-                <div id="ingenico_embeded_popup"></div>
+                <div id="worldline_embeded_popup"></div>
             </div>
         </div>
     </div>
@@ -502,7 +502,7 @@ if($mer_array['enableEmandate'] == 1){
                                 /*'redirectOnClose': 'https://www.tekprocess.co.in/MerchantIntegrationClient/MerchantResponsePage.jsp',*/
                                 'responseHandler': handleResponse,
                                 'paymentMode': '<?php if(isset($mer_array['paymentMode'])){ echo $mer_array['paymentMode']; } ?>',
-                                'checkoutElement': '<?php if($mer_array['embedPaymentGatewayOnPage'] == "1"){ echo "#ingenico_embeded_popup"; } else { echo ""; } ?>',
+                                'checkoutElement': '<?php if($mer_array['embedPaymentGatewayOnPage'] == "1"){ echo "#worldline_embeded_popup"; } else { echo ""; } ?>',
                                 'merchantLogoUrl': '<?php if(isset($mer_array['logoURL'])){ echo $mer_array['logoURL']; } ?>',  //provided merchant logo will be displayed
                                 'merchantId': obj['data'][0],
                                 'currency': obj['data'][15],

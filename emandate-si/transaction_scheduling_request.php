@@ -8,7 +8,7 @@ if(isset($_POST))
 {
   $transactionIdentifier = str_shuffle("0123456789");
 	$date = date("dmY", strtotime($_POST['transactionDate']));
-  $admin_data = file_get_contents("../ingenico_AdminData.json");
+  $admin_data = file_get_contents("../worldline_AdminData.json");
   $mer_array = json_decode($admin_data, true);
 	$arr_req = array(
 	    "merchant" => [
@@ -93,7 +93,7 @@ if(isset($_POST))
             <td>'.$schedulingData["merchantTransactionIdentifier"].'</td>
           </tr>
           <tr>
-            <td>Ingenico Merchant Transaction ID </td>
+            <td>worldline Merchant Transaction ID </td>
             <td>'.$schedulingData["paymentMethod"]["paymentTransaction"]["identifier"].'</td>
           </tr>
           <tr>

@@ -40,7 +40,7 @@ if(isset($_POST)){
 
 	$newData = json_encode($data);
 
-	$name = "ingenico_AdminData"; 
+	$name = "worldline_AdminData"; 
     $file_name = $name.'.json';
     $path = $name.'.json';
 	if(file_exists($path))

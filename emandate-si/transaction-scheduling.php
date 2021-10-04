@@ -16,7 +16,7 @@
     <title>Transaction Scheduling</title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="<?php echo $host."://".$_SERVER["HTTP_HOST"].'/checkout_js/assets/css/bootstrap.min.css';?>">
+    <link rel="stylesheet" href="<?php echo $host."://".$_SERVER["HTTP_HOST"].'/php-checkoutjs/assets/css/bootstrap.min.css';?>">
 </head>
 <body>
     <div class="container">

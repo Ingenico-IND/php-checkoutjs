@@ -13,7 +13,7 @@ if(isset($_POST))
 	$date                      = $_POST['transactionDate'];
 	$newDate                   = date("d-m-Y", strtotime($date));
 
-    $admin_data = file_get_contents("../ingenico_AdminData.json");
+    $admin_data = file_get_contents("../worldline_AdminData.json");
     $mer_array = json_decode($admin_data, true);
 
   	$arr_req = array(
@@ -90,7 +90,7 @@ if(isset($_POST))
             <td>'.$verifyData["paymentMethod"]["token"].'</td>
           </tr>
           <tr>
-            <td>Ingenico Merchant Transaction ID</td>
+            <td>worldline Merchant Transaction ID</td>
             <td>'.$verifyData["paymentMethod"]["paymentTransaction"]["identifier"].'</td>
           </tr>
           <tr>

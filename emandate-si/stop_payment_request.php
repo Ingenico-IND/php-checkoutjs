@@ -7,7 +7,7 @@ $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT
 if(isset($_POST))
 {
     $transactionIdentifier = str_shuffle("0123456789");
-    $admin_data = file_get_contents("../ingenico_AdminData.json");
+    $admin_data = file_get_contents("../worldline_AdminData.json");
     $mer_array = json_decode($admin_data, true);
 
   	$arr_req = array(

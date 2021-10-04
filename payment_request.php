@@ -1,7 +1,7 @@
 <?php
 
 //echo "<pre>";print_r($_POST);die();
-$admin_data = file_get_contents("./ingenico_AdminData.json");
+$admin_data = file_get_contents("./worldline_AdminData.json");
 $mer_array = json_decode($admin_data, true);
 
 $val = $_POST;
